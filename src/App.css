@@ -53,6 +53,7 @@
 
 button.item-details-button, button.promo-code-button {
   padding: 0;
+  border: 0;
 }
 
 hr {
@@ -74,4 +75,9 @@ hr {
 .item-details__price {
   padding: 0;
   font-size: 0.9em;
+}
+
+.estTotal__title, .estTotal__amount {
+  font-weight: bolder;
+  font-size: 1.2em;
 }
