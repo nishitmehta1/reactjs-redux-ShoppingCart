@@ -19,7 +19,9 @@ class PromoCode extends Component {
 	render() {
 		return (
 			<div>
-				<Button className="promo-code-button" bsStyle="link" onClick={() => this.setState({open: !this.state.open})}>
+				<Button className="promo-code-button" variant="link" 
+					onClick={() => this.setState({open: !this.state.open})}
+				>
 					{this.state.open === false ? `Apply` : `Hide`} promo code
 					{this.state.open === false ? ` +` : ` -`}					
 				</Button>
@@ -40,7 +42,7 @@ class PromoCode extends Component {
 										/>
 									</FormGroup>
 									<Button block 
-										bsStyle="success" 
+										variant="success" 
 										className="btn-round" 
 										disabled={this.props.isDisabled} 
 										onClick={this.props.giveDiscount}

@@ -6,6 +6,7 @@ import PickupSavings from './components/PickupSavings';
 import TaxesFees from './components/TaxesFees';
 import EstimatedTotal from './components/EstimatedTotal';
 import ItemDetails from './components/ItemDetails';
+import CartTitle from './components/CartTitle.js';
 import PromoCode from './components/PromoCode';
 import "./App.css";
 import { connect } from 'react-redux';
@@ -53,10 +54,11 @@ class App extends Component {
 
   render() {
     return (
-      <div className="container col-md-3">
+      <div className="container col-md-3 main_app">
         <Container className="purchase-card">
           <Row>
             <Col>
+              <CartTitle value="SUMMARY"></CartTitle>
               <Subtotal price={this.state.total.toFixed(2)} />
               <PickupSavings price={this.state.pickupSaving}></PickupSavings>
               <TaxesFees taxes={this.state.taxes.toFixed(2)}></TaxesFees>

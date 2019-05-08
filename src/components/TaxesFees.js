@@ -6,8 +6,8 @@ export class TaxesFees extends Component {
 	render() {
 		return (
 			<Row className="show-grid">
-				<Col md={6}>Ext. Taxes and Fees</Col>
-				<Col md={6}>${this.props.taxes}</Col>
+				<Col md={6} className="summary__title">Ext. Taxes and Fees</Col>
+				<Col md={6} className="summary__amount">${this.props.taxes}</Col>
 			</Row>
 
 		);

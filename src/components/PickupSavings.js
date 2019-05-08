@@ -10,14 +10,14 @@ export class PickupSavings extends Component {
 		);
 		return (
 			<Row className="show-grid">
-				<Col md={6}>
+				<Col md={6} className="summary__title">
 					<OverlayTrigger palcement="bottom" overlay={tooltip}>
-						<div className="pickupSavings__text">
+						<div className="pickupSavings__text summary__title">
 							Pickup Savings				
 						</div>
 					</OverlayTrigger>
 				</Col>
-				<Col className="pickupSavings__amount" md={6}>
+				<Col className="pickupSavings__amount summary__amount" md={6}>
 					${this.props.price}
 				</Col>
 			</Row>

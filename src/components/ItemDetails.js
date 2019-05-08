@@ -12,19 +12,22 @@ export default class ItemDetails extends Component {
 	render() {
 		return (
 			<div>
-				<Button className="item-details-button" bsStyle="link" onClick={() => this.setState({open: !this.state.open})}>
+				<Button className="item-details-button" 
+					variant="link" onClick={() => this.setState({open: !this.state.open})}>
 					{this.state.open === false ? `See` : `Hide`} item Details 
 					{this.state.open === false ? ` +` : ` -`}
 				</Button>
 				<Collapse in={this.state.open}>
 					<div>
 						<Media>
-							<img width={100}
-								src="https://via.placeholder.com/50" 
+							<img className="item-details__thumbnail" width={100}
+								src="https://images-na.ssl-images-amazon.com/images/I/61PURpRGKQL._SL1000_.jpg" 
 								alt="Item Alt" />
-							<Media.Body>
-								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corrupti, vitae.</p>
-								<Row className="show-grid">
+							<Media.Body className="mediaBody__text">
+								<p>
+									Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corrupti, vitae.
+								</p>
+								<Row className="show-grid item-details__price">
 									<Col md={6}>
 										<strong>${this.props.price}</strong>
 										<br/>
