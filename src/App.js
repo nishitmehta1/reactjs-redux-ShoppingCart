@@ -13,6 +13,7 @@ import "./App.css";
 import { connect } from 'react-redux';
 import db from './db.js';
 import { handleChange } from './actions/promoCodeActions';
+import { HashRouter, Route, Link } from "react-router-dom";
 
 // https://www.imagehandler.net/?iset=0100&istyle=0000&fmt=jpg&w=2000&h=2000&cmp=85&c=999&img=A1026199000&iindex=0088&retBlank=1x1
 
@@ -138,36 +139,38 @@ class App extends Component {
 
   render() {
     return (
-      <div className="container">
-        <Row>
-          <Col md={8}>
-            <Products 
-              filteredProducts={this.state.filteredProducts} products={this.state.products}
-              handleAddToCart={this.handleAddToCart}
-            />
-          </Col>
-          <Col md={4}>
-            <Container className="purchase-card main_app">
-              <Row>
-                <Col>
-                  <CartTitle value="SUMMARY"></CartTitle>
-                  <Subtotal price={this.state.total.toFixed(2)} />
-                  <PickupSavings price={this.state.pickupSaving}></PickupSavings>
-                  <TaxesFees taxes={this.state.taxes.toFixed(2)}></TaxesFees>
-                  <hr/>
-                  <EstimatedTotal price={this.state.estTotal.toFixed(2)}></EstimatedTotal>
-                  <ItemDetails handleRemoveFromCart={this.handleRemoveFromCart} cartItems={this.state.cartItems} price={this.state.estTotal.toFixed(2)}></ItemDetails>
-                  <hr/>
-                  <PromoCode 
-                    giveDiscount={() => this.giveDiscountHandler()} 
-                    isDisabled={this.state.disabledPromoButton} 
-                  />
-                </Col>
-              </Row>
-            </Container>
-          </Col>
-        </Row>
-      </div>
+     <HashRouter basename="/">
+        <div className="container">
+          <Row>
+            <Col md={8}>
+              <Products 
+                filteredProducts={this.state.filteredProducts} products={this.state.products}
+                handleAddToCart={this.handleAddToCart}
+              />
+            </Col>
+            <Col md={4}>
+              <Container className="purchase-card main_app">
+                <Row>
+                  <Col>
+                    <CartTitle value="SUMMARY"></CartTitle>
+                    <Subtotal price={this.state.total.toFixed(2)} />
+                    <PickupSavings price={this.state.pickupSaving}></PickupSavings>
+                    <TaxesFees taxes={this.state.taxes.toFixed(2)}></TaxesFees>
+                    <hr/>
+                    <EstimatedTotal price={this.state.estTotal.toFixed(2)}></EstimatedTotal>
+                    <ItemDetails handleRemoveFromCart={this.handleRemoveFromCart} cartItems={this.state.cartItems} price={this.state.estTotal.toFixed(2)}></ItemDetails>
+                    <hr/>
+                    <PromoCode 
+                      giveDiscount={() => this.giveDiscountHandler()} 
+                      isDisabled={this.state.disabledPromoButton} 
+                    />
+                  </Col>
+                </Row>
+              </Container>
+            </Col>
+          </Row>
+        </div>
+      </HashRouter>
     );
   }
 }
