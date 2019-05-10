@@ -8,6 +8,10 @@
   font-family: 'Roboto', sans-serif;
 }
 
+#root>.container {
+  margin: 30px auto;
+}
+
 .purchase-card {
   width: 250px;
   box-shadow: 0 0 16px rgba(51,51,51,0.9);
@@ -69,7 +73,8 @@ hr {
 }
 
 .mediaBody__text>p {
-  margin-bottom: 2;
+  margin-bottom: 0;
+  /*float: left;*/
 }
 
 .item-details__price {
@@ -89,4 +94,12 @@ hr {
 .products__thumbnail {
   height: 150px;
   width: 150px;
+}
+
+.eachitem__media {
+  margin-bottom: 13px;
+}
+
+.card {
+  margin: 10px 10px;
 }

@@ -25,7 +25,7 @@ export default class ItemDetails extends Component {
 						<Collapse in={this.state.open}>
 							<div className="itemDetails__list">
 							{cartItems.map(cartItem => (
-								<Media>
+								<Media className="eachitem__media">
 									<img className="item-details__thumbnail" width={100}
 										src="https://www.imagehandler.net/?iset=0100&istyle=0000&fmt=jpg&w=2000&h=2000&cmp=85&c=999&img=A1026199000&iindex=0088&retBlank=1x1" 
 										alt="Item Alt" />
@@ -33,13 +33,6 @@ export default class ItemDetails extends Component {
 										<p>
 											{cartItem.title}
 										</p>
-										<Button 
-											variant="danger" 
-											size="sm"
-											onClick={(e) => this.props.handleRemoveFromCart(e, cartItem)}
-										>
-											X
-										</Button>
 										<Row className="show-grid item-details__price">
 											<Col md={6}>
 												<strong>${(cartItem.price * cartItem.count).toFixed(2)}</strong>
@@ -49,6 +42,13 @@ export default class ItemDetails extends Component {
 												Qty: {cartItem.count}
 											</Col>
 										</Row>
+										<Button 
+											variant="danger" 
+											size="sm"
+											onClick={(e) => this.props.handleRemoveFromCart(e, cartItem)}
+										>
+											Remove item
+										</Button>
 									</Media.Body>
 								</Media>
 							))}
