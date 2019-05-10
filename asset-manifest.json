@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/reactjs-redux-ShoppingCart/static/css/main.25fae144.chunk.css",
+    "main.css": "/reactjs-redux-ShoppingCart/static/css/main.34079156.chunk.css",
     "main.js": "/reactjs-redux-ShoppingCart/static/js/main.0b50a5ec.chunk.js",
     "main.js.map": "/reactjs-redux-ShoppingCart/static/js/main.0b50a5ec.chunk.js.map",
     "runtime~main.js": "/reactjs-redux-ShoppingCart/static/js/runtime~main.63aac590.js",
@@ -9,9 +9,9 @@
     "static/js/2.6644bb4d.chunk.js": "/reactjs-redux-ShoppingCart/static/js/2.6644bb4d.chunk.js",
     "static/js/2.6644bb4d.chunk.js.map": "/reactjs-redux-ShoppingCart/static/js/2.6644bb4d.chunk.js.map",
     "index.html": "/reactjs-redux-ShoppingCart/index.html",
-    "precache-manifest.f226026e0b165eaec3b054d65b66bf8f.js": "/reactjs-redux-ShoppingCart/precache-manifest.f226026e0b165eaec3b054d65b66bf8f.js",
+    "precache-manifest.d4941976887188e91a967df5164097ff.js": "/reactjs-redux-ShoppingCart/precache-manifest.d4941976887188e91a967df5164097ff.js",
     "service-worker.js": "/reactjs-redux-ShoppingCart/service-worker.js",
     "static/css/2.266e55a5.chunk.css.map": "/reactjs-redux-ShoppingCart/static/css/2.266e55a5.chunk.css.map",
-    "static/css/main.25fae144.chunk.css.map": "/reactjs-redux-ShoppingCart/static/css/main.25fae144.chunk.css.map"
+    "static/css/main.34079156.chunk.css.map": "/reactjs-redux-ShoppingCart/static/css/main.34079156.chunk.css.map"
   }
 }
