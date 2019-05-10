@@ -16,6 +16,6 @@ To test promoCode component use -> 'DISCOUNT'
 * React-Bootstrap
 
 ## To run locally
-* Download/fork the master branch
+* Download/Pull the master branch
 * Redirect terminal to the project folder
-* type 'npm start' and hit enter
+* Type 'npm start' and hit enter
