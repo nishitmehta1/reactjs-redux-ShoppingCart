@@ -10,6 +10,7 @@
 
 #root>.container {
   margin: 30px auto;
+  max-width: 1240px;
 }
 
 .purchase-card {
@@ -20,7 +21,6 @@
 
 .show-grid {
   padding: 0.8em;
-  /*text-align: center;*/
 }
 
 .pickupSavings__text {
@@ -102,4 +102,12 @@ hr {
 
 .card {
   margin: 10px 10px;
+}
+
+.card-title {
+  height: 40px;
+}
+
+.card-text {
+  padding: 3px 0px;
 }

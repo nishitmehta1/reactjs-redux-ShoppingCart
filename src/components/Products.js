@@ -3,8 +3,9 @@ import { Row, Col, Button, Media, Collapse, Card,  } from 'react-bootstrap'
 
 export default class Products extends Component {
 	render() {
+		console.log(this.props.products)
 		const productItems = this.props.products.map( product => (
-				<Card style={{ width: '15rem' }}>
+				<Card className="product__card" style={{ width: '15rem' }}>
 				  <Card.Img 
 				  	variant="top" 
 				  	src="https://www.imagehandler.net/?iset=0100&istyle=0000&fmt=jpg&w=2000&h=2000&cmp=85&c=999&img=A1026199000&iindex=0088&retBlank=1x1" />

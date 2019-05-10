@@ -11,6 +11,7 @@ import PromoCode from './components/PromoCode';
 import Products from './components/Products';
 import "./App.css";
 import { connect } from 'react-redux';
+import db from './db.js';
 import { handleChange } from './actions/promoCodeActions';
 
 // https://www.imagehandler.net/?iset=0100&istyle=0000&fmt=jpg&w=2000&h=2000&cmp=85&c=999&img=A1026199000&iindex=0088&retBlank=1x1
@@ -31,8 +32,8 @@ class App extends Component {
   }
 
   componentWillMount() {
-    const data = require('./db.json');
-    // console.log(data.products);
+    console.log(db)
+    const data = db;
     this.setState({
       products: data.products,
       filteredProducts: data.products
