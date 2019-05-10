@@ -13,7 +13,7 @@ import "./App.css";
 import { connect } from 'react-redux';
 import db from './db.js';
 import { handleChange } from './actions/promoCodeActions';
-import { HashRouter, Route, Link } from "react-router-dom";
+import { HashRouter, Route, Link, BrowserRouter } from "react-router-dom";
 
 // https://www.imagehandler.net/?iset=0100&istyle=0000&fmt=jpg&w=2000&h=2000&cmp=85&c=999&img=A1026199000&iindex=0088&retBlank=1x1
 
@@ -32,14 +32,14 @@ class App extends Component {
     }
   }
 
-  componentWillMount() {
+  componentWillMount = () => {
     console.log(db)
     const data = db;
     this.setState({
       products: data.products,
       filteredProducts: data.products
     });
-  }
+  };
 
   componentDidMount = () => {
     this.setState({
@@ -52,7 +52,7 @@ class App extends Component {
         })
       }
     )
-  }
+  };
   
   giveDiscountHandler = () => {
     // console.log(this.props.promoCode)
@@ -67,7 +67,7 @@ class App extends Component {
       }
       )
     }
-  }
+  };
   
   handleAddToCart = (e, product) => {
     this.setState(state => {
@@ -101,7 +101,7 @@ class App extends Component {
         })
       }
     );
-  }
+  };
 
   handleRemoveFromCart = (e, product) => {
       for (var i = 0; i < this.state.cartItems.length; i++) {
@@ -135,11 +135,11 @@ class App extends Component {
           }
         )
       })
-  }
+  };
 
   render() {
     return (
-     <HashRouter basename="/">
+     <BrowserRouter basename="/reactjs-redux-ShoppingCart/">
         <div className="container">
           <Row>
             <Col md={8}>
@@ -170,10 +170,10 @@ class App extends Component {
             </Col>
           </Row>
         </div>
-      </HashRouter>
+      </BrowserRouter>
     );
   }
-}
+};
 
 const mapStateToProps = state => ({
   promoCode: state.promoCode.values

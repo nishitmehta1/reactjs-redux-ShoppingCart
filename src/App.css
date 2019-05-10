@@ -19,7 +19,7 @@
 }
 
 .purchase-card {
-  width: 250px;
+  /*width: 250px;*/
   box-shadow: 0 0 16px rgba(51,51,51,0.9);
   padding: 1em;
   border: #e1e1e1 0.1px solid;

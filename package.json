@@ -2,10 +2,9 @@
   "name": "react-shopping-cart",
   "version": "0.1.0",
   "private": true,
-  "homapage": "https://nishitmehta1.github.io/reactjs-redux-ShoppingCart/",
+  "homepage": "https://nishitmehta1.github.io/reactjs-redux-ShoppingCart/",
   "dependencies": {
     "bootstrap": "^4.3.1",
-    "gh-pages": "^2.0.1",
     "react": "^16.8.6",
     "react-bootstrap": "^1.0.0-beta.8",
     "react-dom": "^16.8.6",
@@ -37,5 +36,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "gh-pages": "^2.0.1"
   }
 }
