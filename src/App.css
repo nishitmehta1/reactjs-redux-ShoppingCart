@@ -8,8 +8,13 @@
   font-family: 'Roboto', sans-serif;
 }
 
+#root {
+  background-color: #200404;
+}
+
 #root>.container {
-  margin: 30px auto;
+  padding-top: 30px;
+  margin: 0px auto;
   max-width: 1240px;
 }
 
@@ -17,6 +22,7 @@
   width: 250px;
   box-shadow: 0 0 16px rgba(51,51,51,0.9);
   padding: 1em;
+  border: #e1e1e1 0.1px solid;
 }
 
 .show-grid {
