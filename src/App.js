@@ -8,20 +8,35 @@ import EstimatedTotal from './components/EstimatedTotal';
 import ItemDetails from './components/ItemDetails';
 import CartTitle from './components/CartTitle.js';
 import PromoCode from './components/PromoCode';
+import Products from './components/Products';
 import "./App.css";
 import { connect } from 'react-redux';
 import { handleChange } from './actions/promoCodeActions';
+
+// https://www.imagehandler.net/?iset=0100&istyle=0000&fmt=jpg&w=2000&h=2000&cmp=85&c=999&img=A1026199000&iindex=0088&retBlank=1x1
 
 class App extends Component {
   constructor(props){
     super(props);
     this.state = {
-      total: 100,
-      pickupSaving: -3.21,
+      total: 0,
+      pickupSaving: 0,
       taxes: 0,
       estTotal: 0,
-      disabledPromoButton: false
+      disabledPromoButton: false,
+      products: [],
+      filteredProducts: [],
+      cartItems: []
     }
+  }
+
+  componentWillMount() {
+    const data = require('./db.json');
+    // console.log(data.products);
+    this.setState({
+      products: data.products,
+      filteredProducts: data.products
+    });
   }
 
   componentDidMount = () => {
@@ -51,28 +66,106 @@ class App extends Component {
       )
     }
   }
+  
+  handleAddToCart = (e, product) => {
+    this.setState(state => {
+      const cartItems = state.cartItems;
+      let productAlreadyInCart = false;
+
+      cartItems.forEach(cp => {
+        if (cp.id === product.id) {
+          cp.count += 1;
+          productAlreadyInCart = true;
+        }
+      });
+      if (!productAlreadyInCart) {
+        cartItems.push({ ...product, count: 1 });
+      }
+      return { cartItems: cartItems };
+    }, function() {
+        this.setState({
+          total: this.state.total + product.price
+        }, function() {
+            this.setState({
+              taxes: (this.state.total + this.state.pickupSaving) * 0.0875
+            }, 
+              function() {
+                this.setState({
+                  estTotal: 
+                  this.state.total + this.state.pickupSaving + this.state.taxes
+                })
+              }
+            )
+        })
+      }
+    );
+  }
+
+  handleRemoveFromCart = (e, product) => {
+      for (var i = 0; i < this.state.cartItems.length; i++) {
+        if (this.state.cartItems[i].id === product.id) {
+          break;
+        }
+      }
+      
+      let cartItems = this.state.cartItems
+      cartItems[i].count--
+      if (cartItems[i].count === 0){
+        cartItems = this.state.cartItems.filter(a => a.id !== product.id)
+      }
+      
+      this.setState({
+        cartItems: cartItems
+      }, function() {
+          this.setState({
+            total: this.state.total - product.price
+          }, function() {
+            this.setState({
+              taxes: (this.state.total + this.state.pickupSaving) * 0.0875
+            }, 
+              function() {
+                this.setState({
+                  estTotal: 
+                  this.state.total + this.state.pickupSaving + this.state.taxes
+                })
+              }
+            )
+          }
+        )
+      })
+  }
 
   render() {
     return (
-      <div className="container col-md-3 main_app">
-        <Container className="purchase-card">
-          <Row>
-            <Col>
-              <CartTitle value="SUMMARY"></CartTitle>
-              <Subtotal price={this.state.total.toFixed(2)} />
-              <PickupSavings price={this.state.pickupSaving}></PickupSavings>
-              <TaxesFees taxes={this.state.taxes.toFixed(2)}></TaxesFees>
-              <hr/>
-              <EstimatedTotal price={this.state.estTotal.toFixed(2)}></EstimatedTotal>
-              <ItemDetails price={this.state.estTotal.toFixed(2)}></ItemDetails>
-              <hr/>
-              <PromoCode 
-                giveDiscount={() => this.giveDiscountHandler()} 
-                isDisabled={this.state.disabledPromoButton} 
-              />
-            </Col>
-          </Row>
-        </Container>
+      <div className="container">
+        <Row>
+          <Col md={8}>
+            <Products 
+              filteredProducts={this.state.filteredProducts} products={this.state.products}
+              handleAddToCart={this.handleAddToCart}
+            />
+          </Col>
+          <Col md={4}>
+            <Container className="purchase-card main_app">
+              <Row>
+                <Col>
+                  <CartTitle value="SUMMARY"></CartTitle>
+                  <Subtotal price={this.state.total.toFixed(2)} />
+                  <PickupSavings price={this.state.pickupSaving}></PickupSavings>
+                  <TaxesFees taxes={this.state.taxes.toFixed(2)}></TaxesFees>
+                  <hr/>
+                  <EstimatedTotal price={this.state.estTotal.toFixed(2)}></EstimatedTotal>
+                  <ItemDetails handleRemoveFromCart={this.handleRemoveFromCart} cartItems={this.state.cartItems} price={this.state.estTotal.toFixed(2)}></ItemDetails>
+                  <hr/>
+                  <PromoCode 
+                    giveDiscount={() => this.giveDiscountHandler()} 
+                    isDisabled={this.state.disabledPromoButton} 
+                  />
+                </Col>
+              </Row>
+            </Container>
+          </Col>
+        </Row>
       </div>
     );
   }

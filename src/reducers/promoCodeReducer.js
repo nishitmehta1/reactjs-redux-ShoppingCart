@@ -1,4 +1,5 @@
 import { PROMO_CODE } from '../actions/types';
+import { SUB_TOTAL } from '../actions/types';
 
 const initialState = {
 	open:false,
@@ -13,6 +14,8 @@ export default function(state = initialState, action){
 				...state,
 				values: action.payload
 			};
+		case SUB_TOTAL:
+			console.log(action.payload)
 		default:
 			return state;
 	}

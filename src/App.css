@@ -81,3 +81,12 @@ hr {
   font-weight: bolder;
   font-size: 1.2em;
 }
+
+.itemDetails__list {
+  margin-top: 15px;
+}
+
+.products__thumbnail {
+  height: 150px;
+  width: 150px;
+}
